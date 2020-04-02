@@ -3,16 +3,16 @@
 
     <contextName>myAppName</contextName>
 
-    <property name="pattern" value="%d %-5level [%thread] %logger{10} [%line] %m%n"/>
+    <property name="pattern" value="%d %-5level [%thread] %logger{10} [line:%line] %m%n"/>
     <property name="pattern-color"
-              value="%yellow(%d) %highlight(%-5level) [%thread] %green(%logger{10}) [%line]  %highlight(%msg) %n"/>
+              value="%yellow(%d) %highlight(%-5level) [%thread] %green(%logger{10}) [line:%line]  %highlight(%msg) %n"/>
     <property name="filePath" value="logs"/>
     <property name="fileName" value="my.log"/>
 
     <appender name="file" class="ch.qos.logback.core.FileAppender">
         <file>${filePath}/${fileName}</file>
         <encoder>
-            <pattern>${pattern-color}</pattern>
+            <pattern>${pattern}</pattern>
         </encoder>
     </appender>
 
