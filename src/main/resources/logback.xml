@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="format" value="%date %level [%thread] %logger{10} [%line] %msg%n"/>
+    <contextName>myAppName</contextName>
+
+    <property name="pattern" value="%d %-5level [%thread] %logger{10} [%line] %m%n"/>
+    <property name="pattern-color"
+              value="%yellow(%d) %highlight(%-5level) [%thread] %green(%logger{10}) [%line]  %highlight(%msg) %n"/>
     <property name="filePath" value="logs"/>
     <property name="fileName" value="my.log"/>
 
     <appender name="file" class="ch.qos.logback.core.FileAppender">
         <file>${filePath}/${fileName}</file>
         <encoder>
-            <pattern>${format}</pattern>
+            <pattern>${pattern-color}</pattern>
         </encoder>
     </appender>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${format}</pattern>
+            <pattern>${pattern-color}</pattern>
         </encoder>
     </appender>
 
