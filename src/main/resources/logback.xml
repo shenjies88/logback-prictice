@@ -7,10 +7,19 @@
     <property name="pattern-color"
               value="%yellow(%d) %highlight(%-5p) [%t] %green(%c) [line:%L]  %highlight(%m) %n"/>
     <property name="filePath" value="logs"/>
-    <property name="fileName" value="my.log"/>
+    <property name="fileName" value="my"/>
 
-    <appender name="file" class="ch.qos.logback.core.FileAppender">
-        <file>${filePath}/${fileName}</file>
+    <!-- 文件输出 -->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${filePath}/${fileName}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${filePath}/${fileName}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- keep 30 days' worth of history capped at 20B total size -->
+            <maxHistory>30</maxHistory>
+            <maxFileSize>10MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
         <encoder>
             <pattern>${pattern}</pattern>
         </encoder>
