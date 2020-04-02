@@ -14,7 +14,8 @@ class HelloWorld {
         Logger logger = LoggerFactory.getLogger("com.shenjies88.logback.practice.HelloWorld");
         int i = 10;
         while (i > 0) {
-            logger.debug("Hello world {}",i--);
+            logger.debug("Hello world debug {}", i--);
+            logger.info("Hello world info {}", i--);
             Thread.sleep(1000);
         }
     }

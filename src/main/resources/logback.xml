@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="format" value="date %level [%thread] %logger{10} [%line] %msg%n"/>
+    <property name="format" value="%date %level [%thread] %logger{10} [%line] %msg%n"/>
     <property name="filePath" value="logs"/>
     <property name="fileName" value="my.log"/>
 
@@ -18,8 +18,11 @@
         </encoder>
     </appender>
 
-    <root level="debug">
-        <appender-ref ref="file"/>
+    <logger name="com.shenjies88.logback.practice" level="debug">
         <appender-ref ref="console"/>
+    </logger>
+
+    <root level="info">
+        <appender-ref ref="file"/>
     </root>
 </configuration>
