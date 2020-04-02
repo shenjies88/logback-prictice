@@ -25,12 +25,7 @@
         </encoder>
     </appender>
 
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${pattern-color}</pattern>
-        </encoder>
-    </appender>
-
+    <include resource="logback-console.xml"/>
     <logger name="com.shenjies88.logback.practice" level="debug">
         <appender-ref ref="console"/>
     </logger>
